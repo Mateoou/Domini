@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Archivos y Links</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mateo Otalora Urrego</h1>
+        <h2>Universidad Sergio Arboleda</h2>
+        <h3>Ciencias de la Computación e Inteligencia Artificial</h3>
+        
+        <h4>Subir Archivo</h4>
+        <input type="file" id="fileInput">
+        <textarea id="fileMessage" placeholder="Mensaje para el profesor..."></textarea>
+        <button onclick="uploadFile()">Enviar Archivo</button>
+        
+        <ul id="fileList"></ul>
+
+        <h4>Subir Link</h4>
+        <input type="text" id="linkInput" placeholder="Ingrese el link...">
+        <textarea id="linkMessage" placeholder="Mensaje para el profesor..."></textarea>
+        <button onclick="submitLink()">Enviar Link</button>
+        
+        <ul id="linkList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
