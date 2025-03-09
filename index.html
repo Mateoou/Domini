@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Archivos y Links</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Firebase SDK v11 -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getDatabase, ref, push, set, onChildAdded, remove } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyC1sTvhahvioe0HreTKNzWUeDj19UaYqU8",
+            authDomain: "entregas-mateo-otalora.firebaseapp.com",
+            databaseURL: "https://entregas-mateo-otalora-default-rtdb.firebaseio.com",
+            projectId: "entregas-mateo-otalora",
+            storageBucket: "entregas-mateo-otalora.firebasestorage.app",
+            messagingSenderId: "427419594189",
+            appId: "1:427419594189:web:e3680bd01da7774126a884",
+            measurementId: "G-S44B0HEWKP"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const analytics = getAnalytics(app);
+
+        // Hacer disponibles las funciones y objetos globalmente
+        window.firebaseApp = app;
+        window.firebaseDB = database;
+        window.dbRef = ref;
+        window.dbPush = push;
+        window.dbSet = set;
+        window.dbOnChildAdded = onChildAdded;
+        window.dbRemove = remove;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Mateo Otalora Urrego</h1>
+        <h2>Universidad Sergio Arboleda</h2>
+        <h3>Ciencias de la Computación e Inteligencia Artificial</h3>
+        
+        <h4>Subir Link</h4>
+        <form id="linkForm">
+            <input type="text" id="linkInput" placeholder="Ingrese el link..." required>
+            <textarea id="linkMessage" placeholder="Mensaje para el profesor..." required></textarea>
+            <button type="submit">Enviar Link</button>
+            <button type="button" onclick="clearSavedLinks()">Borrar Links</button>
+        </form>
+        
+        <!-- Sección para ver los enlaces enviados -->
+        <h4>Enlaces Enviados</h4>
+        <ul id="linkList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
